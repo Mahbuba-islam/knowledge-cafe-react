@@ -1,0 +1,80 @@
+{
+
+  "items": [
+    {
+      "id": "blog-001",
+      "title": "How AI Is Changing Frontend Development",
+      "author": {
+        "name": "Ava Thompson",
+        "image": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"
+      },
+      "date": "2025-08-13",
+      "excerpt": "Explore how tools like Copilot and Pixso are reshaping design-to-code workflows.",
+      "blogImage": "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg",
+      "tags": ["AI", "Frontend", "Design Tools"],
+      "readingTime": "6 min read",
+      "isBookmarked": false,
+      "url": "/blogs/ai-changing-frontend"
+    },
+    {
+      "id": "blog-002",
+      "title": "Tailwind CSS Tips for Clean UI",
+      "author": {
+        "name": "Liam Patel",
+        "image": "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg"
+      },
+      "date": "2025-08-10",
+      "excerpt": "Learn how to structure your Tailwind classes for maintainable and scalable design.",
+      "blogImage": "https://images.unsplash.com/photo-1607746882042-944635dfe10e",
+      "tags": ["Tailwind", "CSS", "Best Practices"],
+      "readingTime": "4 min read",
+      "isBookmarked": true,
+      "url": "/blogs/tailwind-ui-tips"
+    },
+    {
+      "id": "blog-003",
+      "title": "Designing with Pixso: A Figma Alternative",
+      "author": {
+        "name": "Sofia Nguyen",
+        "image": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg"
+      },
+      "date": "2025-08-05",
+      "excerpt": "A deep dive into Pixso’s features and how it compares to Figma for collaborative design.",
+      "blogImage": "https://images.pexels.com/photos/3761508/pexels-photo-3761508.jpeg",
+      "tags": ["Pixso", "Design", "Tools"],
+      "readingTime": "5 min read",
+      "isBookmarked": false,
+      "url": "/blogs/pixso-vs-figma"
+    },
+    {
+      "id": "blog-004",
+      "title": "Building Accessible Web Apps with React",
+      "author": {
+        "name": "Noah Kim",
+        "image": "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg"
+      },
+      "date": "2025-08-01",
+      "excerpt": "Accessibility isn’t optional—learn how to make your React apps inclusive and user-friendly.",
+      "blogImage": "https://images.unsplash.com/photo-1581090700227-1e7e8f1c4c56",
+      "tags": ["Accessibility", "React", "Web Development"],
+      "readingTime": "7 min read",
+      "isBookmarked": true,
+      "url": "/blogs/react-accessibility"
+    },
+    {
+      "id": "blog-005",
+      "title": "From Wireframe to Deployment: A UI Journey",
+      "author": {
+        "name": "Isabella Garcia",
+        "image": "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg"
+      },
+      "date": "2025-07-28",
+      "excerpt": "Follow the full lifecycle of a UI project—from sketch to production-ready code.",
+      "blogImage": "https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg",
+      "tags": ["UI/UX", "Workflow", "Deployment"],
+      "readingTime": "6 min read",
+      "isBookmarked": false,
+      "url": "/blogs/ui-journey"
+    }
+  ]
+}

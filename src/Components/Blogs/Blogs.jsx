@@ -1,20 +1,34 @@
 import { useEffect, useState } from "react";
 import Blog from "../Blog/Blog";
 import BookMarkBlog from "../BookmarkBlog/BookMarkBlog";
+import { addItemInLs, getItemFromLs } from "../../utility/utility";
 const Blogs = () => {
     const [blogs, setBlogs] = useState([])
      const [bookmarkBlogs, setBookMarkBlogs] = useState([])
-
+     
     const handleBookMark = (blog) => {
       const newAdded = [...bookmarkBlogs, blog]
        setBookMarkBlogs(newAdded)
+       addItemInLs(blog.id)
     }
+   
+
 
     useEffect(()=> {
         fetch('blogs.json')
         .then(res => res.json())
         .then(data => setBlogs(data.items))
+        
     },[])
+
+   
+    
+    useEffect(()=>{
+      const ids = getItemFromLs()
+      const bookmarkList = blogs.filter(blog => ids.includes(blog.id))
+        setBookMarkBlogs(bookmarkList)
+       },[blogs])
+
     return (
         <div className="container mx-auto flex md:gap-12 gap-8 ">
             <hr />

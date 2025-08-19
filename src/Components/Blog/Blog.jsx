@@ -1,6 +1,6 @@
 
 
-const Blog = ({blog, handleBookMark}) => {
+const Blog = ({blog, handleBookMark, handleReadingTime}) => {
     const {blogImage, readingTime, title, author, tags, url, excerpt,date, isBookmarked} = blog
     console.log(blog)
     return (
@@ -16,9 +16,9 @@ const Blog = ({blog, handleBookMark}) => {
                     </div>
                     
                 </div>
-                <div className="md:flex items-center gap-2 md:text-sm text-xs space-y-2">
-                    <h6 className="text-xs">{readingTime}</h6>
-                    <button onClick={()=> handleBookMark(blog)}><img  className="w-[20px]" src="/src/assets/images/Bookmark Black Icon .png" alt="" /></button>
+                <div className="flex md:text-sm text-xs items-center space-y-2 space-x-2 ">
+                    <button onClick={()=> handleReadingTime(readingTime)} className="">{readingTime}</button>
+                    <img onClick={()=> handleBookMark(blog)} className="w-6" src="/src/assets/images/Bookmark Black Icon .png" alt="" />
                 </div>
                 </div>
 

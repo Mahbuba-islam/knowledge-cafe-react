@@ -1,38 +1,58 @@
+// 🔖 Bookmark Utilities
 
-//get item from localStorage
+// Get bookmark list from localStorage
 const getItemFromLs = () => {
-    const bookmarkList = localStorage.getItem('bookmark')
-   if(bookmarkList){
-    return JSON.parse(bookmarkList)
-   }
-   else{
-     return []
-   }
-    // return bookmarkList ? JSON.parse(bookmarkList) : []
-}
+  const bookmarkList = localStorage.getItem('bookmark');
+  return bookmarkList ? JSON.parse(bookmarkList) : [];
+};
 
-// remove item from LS
-const removeItemFromLS = (id) => {
-  const bookMarkList = getItemFromLs()
-  const remaining = bookMarkList.filter(i => i !== id)
-  saveLocalStorage(remaining)
-}
+// Save updated bookmark list to localStorage
+const saveLocalStorage = (bookmarkList) => {
+  localStorage.setItem('bookmark', JSON.stringify(bookmarkList));
+};
 
-const saveLocalStorage = (newBookMarkList) => {
-    const bookMarkListString = JSON.stringify(newBookMarkList)
-    localStorage.setItem('bookmark', bookMarkListString)
-    
-}
-// add item in LS
+// Add a bookmark ID to localStorage
 const addItemInLs = (id) => {
-    const bookMarks = getItemFromLs()
-    if(!bookMarks.includes(id)){
-     const bookMarkArray = [...bookMarks, id]
-    saveLocalStorage(bookMarkArray)
-    }
-    
-    
+  const bookmarks = getItemFromLs();
+  if (!bookmarks.includes(id)) {
+    saveLocalStorage([...bookmarks, id]);
+  }
+};
 
-}
+// Remove a bookmark ID from localStorage
+const removeItemFromLS = (id) => {
+  const bookmarks = getItemFromLs();
+  const updatedBookmarks = bookmarks.filter(item => item !== id);
+  saveLocalStorage(updatedBookmarks);
+};
 
-export {addItemInLs, getItemFromLs, removeItemFromLS}
+
+
+// ⏱️ Read Time Utilities
+
+// Get total read time from localStorage
+const getReadTimeFromLs = () => {
+  const readTime = localStorage.getItem('readTime');
+  return readTime ? JSON.parse(readTime) : 0;
+};
+
+// Save total read time to localStorage
+const saveTimeInLs = (totalTime) => {
+  localStorage.setItem('readTime', JSON.stringify(totalTime));
+};
+
+// Add new reading time to existing total in localStorage
+const addTimeInLs = (time) => {
+  const currentTime = getReadTimeFromLs();
+  const updatedTime = parseInt(currentTime) + parseInt(time);
+  saveTimeInLs(updatedTime);
+};
+
+// ✅ Export all utilities
+export {
+  addItemInLs,
+  getItemFromLs,
+  removeItemFromLS,
+  addTimeInLs,
+  getReadTimeFromLs
+};

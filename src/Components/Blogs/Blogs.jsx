@@ -131,10 +131,10 @@ const handleReset = () => {
       </div>
 
       <div className="my-10 flex-1 text-sm">
-       <div className="bg-blue-50 text-blue-800 px-4 py-2 rounded-md shadow-sm flex items-center justify-between">
-  <div className="flex items-center gap-2">
-    <span className="text-lg font-semibold">🕒 Total Reading Time:</span>
-    <span className="text-xl font-bold">{readTime} min</span>
+       <div className="bg-blue-50 text-blue-800 px-4 py-2 rounded-md shadow-sm flex items-center justify-between flex-col lg:flex-row space-y-2">
+  <div className="flex items-center justify-center space-x-3">
+    <span className="lg:text-lg font-semibold text-xs">🕒 Total Reading Time: </span>
+    <span className="lg:text-xl font-bold tex-sm "> {readTime} min</span>
   </div>
   <button onClick={()=> handleReset(readTime)}
    

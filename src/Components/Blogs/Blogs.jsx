@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Blog from "../Blog/Blog";
 import BookMarkBlog from "../BookMarkBlog/BookMarkBlog";
+
 import {
   addItemInLs,
   addTimeInLs,
@@ -21,9 +22,11 @@ const Blogs = () => {
     if (!bookmarkBlogs.includes(blog)) {
       const updatedBookmarks = [...bookmarkBlogs, blog];
       setBookMarkBlogs(updatedBookmarks);
+     toast.success('✨ Added to your reading list!');
       addItemInLs(blog.id, 'bookmark');
     } else {
-      toast.warning('Already added');
+      toast.warning('📌 This blog is already in your bookmarks.');
+
     }
   };
 
@@ -36,10 +39,14 @@ const Blogs = () => {
 
       const updatedTotalTime = readTime + readingTimeNumber;
       setReadTime(updatedTotalTime);
+     toast.success(`Marked as read ✅ Added ${readingTimeNumber} min to total`);
+
       addTimeInLs(readingTimeNumber); // Save to localStorage
-    } else {
-      toast.warning("Already marked as read!");
+    } 
+    else{
+     toast.warning("⚠️ You've already read this blog!");
     }
+    
   };
 
   // ⏱️ Load read time from localStorage
@@ -63,11 +70,50 @@ const Blogs = () => {
   }, [blogs]);
 
   // ❌ Remove bookmark
-  const removeItem = (id) => {
-    const remaining = bookmarkBlogs.filter(item => item.id !== id);
+  const deleteItem = (id) => {
+  const remaining = bookmarkBlogs.filter(item => item.id !== id);
     setBookMarkBlogs(remaining);
     removeItemFromLS(id, 'bookmark');
   };
+
+const removeItemToast = (id) => {
+toast(({ closeToast }) => (
+  <div className="p-4">
+    <h1 className="text-sm text-gray-800">Are you sure?</h1>
+    <div className="mt-3 flex gap-2">
+      <button
+        className="px-3 py-1 text-sm bg-red-600 text-white rounded hover:bg-red-700 transition"
+        onClick={() => {
+          deleteItem(id);
+          closeToast();
+        }}
+      >
+        Yes
+      </button>
+      <button
+        className="px-3 py-1 text-sm bg-gray-300 text-gray-800 rounded hover:bg-gray-400 transition"
+        onClick={closeToast}
+      >
+        No
+      </button>
+    </div>
+  </div>
+), {
+  autoClose: false,
+  closeOnClick: false,
+  draggable: false,
+  position: 'top-center',
+});
+
+}
+
+
+// handle reset
+const handleReset = () => {
+  setReadTime(0)
+  localStorage.removeItem('readTime')
+}
+
 
   return (
     <div className="container mx-auto flex md:gap-12 gap-8">
@@ -78,14 +124,26 @@ const Blogs = () => {
             blog={blog}
             handleBookMark={handleBookMark}
             handleReadMark={handleReadMark}
+            readMarks = {readMarks}
+            bookmarkBlogs = {bookmarkBlogs}
           />
         ))}
       </div>
 
       <div className="my-10 flex-1 text-sm">
-        <h1 className="text-blue-600 bg-blue-100 font-bold p-4 rounded-md text-xl text-center">
-          Spent time on read: {readTime} min
-        </h1>
+       <div className="bg-blue-50 text-blue-800 px-4 py-2 rounded-md shadow-sm flex items-center justify-between">
+  <div className="flex items-center gap-2">
+    <span className="text-lg font-semibold">🕒 Total Reading Time:</span>
+    <span className="text-xl font-bold">{readTime} min</span>
+  </div>
+  <button onClick={()=> handleReset(readTime)}
+   
+    className="text-sm text-red-500 hover:underline font-bold"
+  >
+      🔄 Reset 
+
+  </button>
+</div>
 
         <div className="bg-gray-300 mt-4 rounded-md py-4">
           <h1 className="text-center font-semibold">
@@ -95,7 +153,7 @@ const Blogs = () => {
             <BookMarkBlog
               key={bookmarkBlog.id}
               bookmarkBlog={bookmarkBlog}
-              removeItem={removeItem}
+              removeItemToast={removeItemToast}
             />
           ))}
         </div>

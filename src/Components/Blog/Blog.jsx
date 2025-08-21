@@ -1,6 +1,8 @@
-const Blog = ({ blog, handleBookMark, handleReadMark }) => {
-  const { blogImage, readingTime, title, author, tags, date, id } = blog;
 
+const Blog = ({ blog, handleBookMark, handleReadMark , readMarks, bookmarkBlogs }) => {
+  const { blogImage, readingTime, title, author, tags, date, id } = blog;
+  const isBookMarked = bookmarkBlogs.some(bookmarkBlog => bookmarkBlog.id === id)
+  const isAlreadyRead = readMarks.includes(id)
   return (
     <div className="my-10 pb-5 md:flex">
       <div className="space-y-4 w-[120px] md:w-[780px]">
@@ -24,14 +26,20 @@ const Blog = ({ blog, handleBookMark, handleReadMark }) => {
 
           {/* Reading Time & Bookmark */}
           <div className="flex items-center space-x-2 text-xs md:text-sm">
-            <p className="my-8">{readingTime}</p>
-            <img
-              onClick={() => handleBookMark(blog)}
-              className="w-6 cursor-pointer"
-              src="/Bookmark-Black-Icon.png"
-              alt="Bookmark"
-            />
-          </div>
+  <p className="my-8">{readingTime}</p>
+
+ {isBookMarked? <span onClick={() => handleBookMark(blog)} className="text-gray-400 text-xs">🔖 Bookmarked</span> 
+ : <img
+      onClick={() => handleBookMark(blog)}
+      className="w-6 cursor-pointer hover:scale-105 transition-transform"
+      src="/Bookmark-Black-Icon.png"
+      alt="Bookmark"
+      title="Add to bookmarks"
+    />}
+
+
+</div>
+
         </div>
 
         {/* Title, Tags, and Read Button */}
@@ -44,9 +52,14 @@ const Blog = ({ blog, handleBookMark, handleReadMark }) => {
           </div>
           <button
             onClick={() => handleReadMark(readingTime, id)}
-            className="text-blue-600 underline"
+          className= {`underline transition-colors duration-300 ease-out  ${isAlreadyRead? 
+            'text-gray-500 cursor-not-allowed' : 'text-blue-600 underline'
+          }`}
+        
           >
-            Mark as read
+            {isAlreadyRead? '✅ Already read' : '📖 Mark as read'}
+           
+          
           </button>
         </div>
       </div>

@@ -1,12 +1,32 @@
 # React + Vite
+📚 Knowledge Café
+A sleek, responsive blog-reading app where users can explore articles, 
+track reading time, and bookmark favorites—all with elegant styling and smooth UX.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🌐 Live Site: knowledge-cafe-bymahbuba.surge.sh
 
-Currently, two official plugins are available:
+✨ Features
+- 📝 View blog posts with author info, tags, and reading time
+- 🔖 Bookmark articles to localStorage
+- ⏱️ Track total reading time across sessions
+- 📱 Responsive design for mobile and desktop
+- ⚡ Fast and optimized with Vite
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+🛠️ Tech Stack
+| Technology | Purpose | 
+| React | UI rendering | 
+| Vite | Fast build tool & dev server | 
+| Tailwind CSS | Utility-first styling | 
+| Surge | Static site deployment | 
+| localStorage | Persistent state (bookmarks, time) | 
+| React Toastify | Notifications | 
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+
+🙋‍♀️ Author
+Mahbuba — Frontend Developer passionate about clean UI, robust tooling, and professional deployment workflows.
+
+📄 License
+This project is open-source and available under the MIT License.

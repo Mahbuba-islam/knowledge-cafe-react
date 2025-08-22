@@ -10,10 +10,10 @@ const Header = () => {
         </h1>
 
         {/* Tagline */}
-     <p className="text-center md:text-left text-base md:text-lg font-medium 
+     <p className="text-center md:text-left text-base md:text-lg 
      text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-sky-500 to-indigo-500 drop-shadow-sm font-bold">
   “ Where ideas hatch and wisdom grows ”
-  <span className="text-black ml-2">📘</span>
+  <span className="text-black ml-2">📚</span>
 </p>
 
 
